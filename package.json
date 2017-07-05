@@ -1,0 +1,8 @@
+{
+	"name": "csv-to-table",
+	"description": "Converts CSV files into HTML tables",
+	"author": "Lauri Liimatta <mail@lauriliimatta.com>",
+	"version": "1.0.0",
+	"type": "kirby-plugin",
+	"license": "MIT"
+}
