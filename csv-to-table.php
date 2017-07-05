@@ -6,22 +6,22 @@ $kirby->set('tag', 'table', array(
 		'thead',
 		'length'
 	),
-    'html' => function($tag) {
-	    $file = $tag->file($tag->attr('table'));
+	'html' => function($tag) {
+		$file = $tag->file($tag->attr('table'));
 
 		// add class if it's defined in markdown or config file
-	    $class = (null !== $tag->attr('class') ? $tag->attr('class') : (null !== c::get('csvtotable.default.class') ? c::get('csvtotable.default.class') : ''));
-	    $class = (null !== $class ? $class = ' class="'.$class.'"' : '');
-	    
-	    $thead = (null !==  $tag->attr('thead') ? $tag->attr('thead') : (null !== c::get('csvtotable.default.thead') ? c::get('csvtotable.default.thead') : false));
+		$class = (null !== $tag->attr('class') ? $tag->attr('class') : (null !== c::get('csvtotable.default.class') ? c::get('csvtotable.default.class') : ''));
+		$class = (null !== $class ? $class = ' class="'.$class.'"' : '');
+		
+		$thead = (null !==  $tag->attr('thead') ? $tag->attr('thead') : (null !== c::get('csvtotable.default.thead') ? c::get('csvtotable.default.thead') : false));
 
-	    // default length is '0' unless set by user or config
-	    $length = (null !== $tag->attr('length') ? $tag->attr('length')->bool() : (null !== c::get('csvtotable.default.length') ? c::get('csvtotable.default.length') : 0));
+		// default length is '0' unless set by user or config
+		$length = (null !== $tag->attr('length') ? $tag->attr('length')->bool() : (null !== c::get('csvtotable.default.length') ? c::get('csvtotable.default.length') : 0));
 
-	    // default to semi-colon as delimiter if it's not set by the user in markdown or config file
-	    $delimiter = (null !== $tag->attr('delimiter') ? $tag->attr('delimiter') : (null !== c::get('csvtotable.default.delimiter') ? c::get('csvtotable.default.delimiter') : ';'));
+		// default to semi-colon as delimiter if it's not set by the user in markdown or config file
+		$delimiter = (null !== $tag->attr('delimiter') ? $tag->attr('delimiter') : (null !== c::get('csvtotable.default.delimiter') ? c::get('csvtotable.default.delimiter') : ';'));
 
-	    $html = '';
+		$html = '';
 		$row = 0;
 
 		if (($handle = fopen($file->url(), "r")) !== false) {
