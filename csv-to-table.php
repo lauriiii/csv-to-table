@@ -29,30 +29,30 @@ $kirby->set('tag', 'table', array(
 			if($thead == null || $thead == false) {
 				$html .= '<tbody>';
 			}
-		    while (($data = fgetcsv($handle, $length, $delimiter)) !== false) {
-		        $num = count($data);
-		        $row++;
+			while (($data = fgetcsv($handle, $length, $delimiter)) !== false) {
+				$num = count($data);
+				$row++;
 
-		        // wrap first row with thead if it's set to true
+				// wrap first row with thead if it's set to true
 				if($thead == true && $row == 1) {
 					$html .= '<thead><tr>';
-			        for ($c=0; $c < $num; $c++) {
-			            $html .= '<th>' . $data[$c] . '</th>';
-			        }
+					for ($c=0; $c < $num; $c++) {
+						$html .= '<th>' . $data[$c] . '</th>';
+					}
 					$html .= '</tr></thead><tbody>';
-		        } else {
-			        $html .= '<tr>';
-			        for ($c=0; $c < $num; $c++) {
-			            $html .= '<td>' . $data[$c] . '</td>';
-			        }
-			        $html .= '</tr>';
-		        }
-		    }
-		    fclose($handle);
+				} else {
+				$html .= '<tr>';
+					for ($c=0; $c < $num; $c++) {
+						$html .= '<td>' . $data[$c] . '</td>';
+					}
+					$html .= '</tr>';
+				}
+			}
+			fclose($handle);
 
-		    $html .= '</tbody></table>';
+			$html .= '</tbody></table>';
 		}
 
 		return $html;
-    }
+	}
 ));
