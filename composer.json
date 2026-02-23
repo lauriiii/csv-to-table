@@ -1,0 +1,30 @@
+{
+    "name": "lauriiii/csv-to-table",
+    "description": "This plugin for Kirby CMS converts csv files into HTML tables.",
+    "license": "MIT",
+    "type": "kirby-plugin",
+    "version": "2.0.0",
+    "homepage": "https://github.com/lauriiii/csv-to-table",
+    "keywords": [
+        "kirby",
+        "kirby-plugin"
+    ],
+    "authors": [
+        {
+            "name": "Lauri Liimatta",
+            "email": "lauri@lauriliimatta.com"
+        }
+    ],
+    "require": {
+        "getkirby/cms": "^5.0",
+        "getkirby/composer-installer": "^1.2"
+    },
+    "extra": {
+        "installer-name": "csv-to-table",
+	},
+    "config": {
+        "allow-plugins": {
+            "getkirby/composer-installer": true
+        }
+    }
+}
